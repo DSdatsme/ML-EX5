@@ -24,8 +24,10 @@ h = X * theta;
 J = (1/ (2 * m)) * (sum((h - y).^2)) + (lambda/ (2 * m)) * sum((theta(2 : end) .^2));
 
 
+%size(X) %12x2
 
-
+grad(1) = (1/ m) * sum((h - y) .* X(:,1));    % h-y=12x1    X=12x2(access first colum only)
+grad(2:end) = (1/ m) * (sum((h - y) .* X(:,2))) + (lambda/ m) * theta(2:end); %access second colum of X
 
 
 
